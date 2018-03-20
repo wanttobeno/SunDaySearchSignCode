@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SearchSignCode", "SearchSignCode\SearchSignCode.vcproj", "{E72F66B2-D982-4777-A6FB-92ADB0199D74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8368CAD6-6A42-4891-917B-5C84D691054A} = {8368CAD6-6A42-4891-917B-5C84D691054A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestDll", "TestDll\TestDll.vcproj", "{8368CAD6-6A42-4891-917B-5C84D691054A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E72F66B2-D982-4777-A6FB-92ADB0199D74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E72F66B2-D982-4777-A6FB-92ADB0199D74}.Debug|Win32.Build.0 = Debug|Win32
+		{E72F66B2-D982-4777-A6FB-92ADB0199D74}.Release|Win32.ActiveCfg = Release|Win32
+		{E72F66B2-D982-4777-A6FB-92ADB0199D74}.Release|Win32.Build.0 = Release|Win32
+		{8368CAD6-6A42-4891-917B-5C84D691054A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8368CAD6-6A42-4891-917B-5C84D691054A}.Debug|Win32.Build.0 = Debug|Win32
+		{8368CAD6-6A42-4891-917B-5C84D691054A}.Release|Win32.ActiveCfg = Release|Win32
+		{8368CAD6-6A42-4891-917B-5C84D691054A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
