@@ -9,9 +9,34 @@
 
 SunDay算法实现的Dll或者EXE的指定特征码地址获取,不支持模糊搜索。
 
+---
 
 ### 补充
 
-整理下了代码，补充了demo，了解下SunDay算法原理。
+可根据需要修改SUNDAY返回值类型，返回的是指针地址。
 
+unsigned char* SUNDAY(unsigned char *lpBase, unsigned char *lpCmp,DWORD len,DWORD maxSize)
 
+---
+
+unsigned char* szFindStart = (unsigned char*)pbuf;
+
+unsigned char* szFindRet; 
+
+int nMaxLen = nLen;
+
+do
+
+{
+			
+			szFindRet = SUNDAY(szFindStart,(unsigned char*)"FindMe",nFindLen1,nMaxLen);
+			
+			if (!szFindRet) break;
+			
+			szFindStart = szFindRet;
+			
+			nMaxLen = nLen - (szFindRet-(unsigned char*)pbuf);
+			
+			// Do something
+			
+}while(1);
