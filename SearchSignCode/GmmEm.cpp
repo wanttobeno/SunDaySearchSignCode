@@ -66,33 +66,38 @@ BOOL GetModuleInfo(DWORD dwPID,char *sz_Module,DWORD *pBase,DWORD *dwSize)
 }
 
 
-
-DWORD SUNDAY(unsigned char *lpBase, unsigned char *lpCmp,DWORD len,DWORD maxSize)
+/**
+ *  参数一：内存的起点
+ *  参数二：查找的二进制
+ *  参数三：查找二进制的大小
+ *  参数四：最大查找字节
+ */
+DWORD SUNDAY(unsigned char *lpBaseBuf, unsigned char *pFindData,DWORD nFindDataSize,DWORD nMaxSize)
 {
     size_t temp[256]; 
     size_t *shift = temp; 
-    size_t i, patt_size = len, text_size = maxSize; 
+    size_t i, patt_size = nFindDataSize, text_size = nMaxSize; 
 	
     for( i=0; i < 256; i++ ) 
         *(shift+i) = patt_size+1; 
 	
     for( i=0; i < patt_size; i++ ) 
-        *(shift+unsigned char(*(lpCmp+i))) = patt_size-i; 
+        *(shift+unsigned char(*(pFindData+i))) = patt_size-i; 
     size_t limit = text_size-patt_size+1; 
-    for( i=0; i < limit; i += shift[ lpBase[i+patt_size] ] ) 
+    for( i=0; i < limit; i += shift[ lpBaseBuf[i+patt_size] ] ) 
     { 
-        if( lpBase[i] == *lpCmp ) 
+        if( lpBaseBuf[i] == *pFindData ) 
         { 
-            unsigned char *match_text = lpBase+i+1; 
+            unsigned char *match_text = lpBaseBuf+i+1; 
             size_t match_size = 1; 
             do 
             {
                 if( match_size == patt_size )
 				{
-                    return (DWORD)lpBase+i;
+                    return (DWORD)lpBaseBuf+i;
 				}
             } 
-            while( (*match_text++) == lpCmp[match_size++] ); 
+            while( (*match_text++) == pFindData[match_size++] ); 
         } 
     } 
 	return NULL;
